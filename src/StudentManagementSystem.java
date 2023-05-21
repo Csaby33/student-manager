@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class StudentManagementSystem {
     private static final Scanner scanner = new Scanner(System.in);
 
-
+    // Display the menu options
     public static void displayMenu() {
         System.out.println();
         System.out.println("Press 1 to list students");
@@ -33,7 +33,7 @@ public class StudentManagementSystem {
         }
     }
 
-
+    // Process the user's menu choice
     public static void processMenuChoice(int choice) {
         switch (choice) {
             case 1 -> StudentManager.listAllStudents();

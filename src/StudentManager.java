@@ -5,14 +5,16 @@ import java.util.Scanner;
 
 public class StudentManager {
     private static final ArrayList<Student> studentList = new ArrayList<>();
+    // Create a new student instance
     static Scanner scanner = new Scanner(System.in);
 
     public static void addNewStudent() {
         Student student = new Student();
         System.out.println("Please enter name: ");
         student.setName(scanner.nextLine());
+        // Validate and set the student's age
         boolean isAgeValid = false;
-        boolean isGradeValid = false;
+
 
         while (!isAgeValid) {
             try {
@@ -31,7 +33,8 @@ public class StudentManager {
 
             }
         }
-
+        // Validate and set the student's grade
+        boolean isGradeValid = false;
         while (!isGradeValid) {
             try {
                 System.out.println("Please enter grade: ");
@@ -48,17 +51,17 @@ public class StudentManager {
             }
         }
         scanner.nextLine();
+        // Add the student to the studentList
         studentList.add(student);
         System.out.println("New student " + student.getName() + " successfully added");
 
     }
 
+    // Removes the student with the specified id from the studentList
     public static void removeStudent() {
 
-       // if (id < 1 || id > studentList.size()) {
-        //    System.out.println("No student found with id " + id);
-      //  } else {
-        if(studentList.size() != 0){
+
+        if (studentList.size() != 0) {
             System.out.println("Enter student id to be removed");
             int id = scanner.nextInt();
             Iterator<Student> iterator = studentList.iterator();
@@ -70,8 +73,7 @@ public class StudentManager {
                     System.out.println("Student " + student.getName() + " successfully removed");
                     scanner.nextLine();
                     break; // Assuming student IDs are unique, we can stop iterating after removal
-                }
-                else {
+                } else {
                     System.out.println("No student found with id " + id);
                     scanner.nextLine();
                     break;
@@ -86,6 +88,7 @@ public class StudentManager {
 
     }
 
+    // Updates the student details with the specified id from the studentList
     public static void updateStudentDetails() {
         System.out.println("Enter student id to be changed");
         int id = scanner.nextInt();
@@ -111,6 +114,7 @@ public class StudentManager {
 
     }
 
+    //Provides a list of all students
     public static void listAllStudents() {
         if (studentList.size() == 0) {
             System.out.println("There are no students yet, please start adding.");
